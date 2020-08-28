@@ -1,4 +1,81 @@
-.img-circle{
-    width:50px;
-    /* height: 50px; */
+html,body{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-size:1rem;
 }
+
+@media (min-width:576) {
+    .col-sm-3 {
+        margin-top: 20px !important;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .author-info >img{
+        width:25%;
+    }
+}
+
+
+
+
+
+/* img gallery */
+.full-panel{
+    visibility: hidden;
+    position:absolute;
+    top:0px;
+    left:0px;
+    background-color:rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    width:100%;
+    z-index:1000000000000000000000000000;
+}
+.thumbnail{
+    margin-top:5%;
+    height: 50vh;
+}
+.gallery{
+    z-index:1;
+}
+.gallery-img{
+    cursor: pointer;
+    transition: 1s ease-in all;
+}
+.close-btn{
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    cursor: pointer;
+    color:  rgba(255, 0, 0, 0.2);
+    background-color:whitesmoke;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.arrow{
+    position: absolute;
+    top: 0;
+    left:50;
+    font-size: 30px;
+    color: whitesmoke;
+    transition:0.3s ease-in all;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 5px 15px 5px 15px;
+}
+.arrow:hover{
+    background-color:whitesmoke;
+    color:rgba(0, 0, 0, 0.8);  
+}
+.left-arrow{
+    top:30%;
+    left:10%;
+}
+
+.right-arrow{
+    top:30%;
+    right:10%;
+}
+
+/* end img gallery */
