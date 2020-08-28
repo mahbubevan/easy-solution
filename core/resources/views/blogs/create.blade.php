@@ -23,7 +23,7 @@
                     <div class="form-group row">
                         <label for="" class="col-12">{{__('blog.tags')}}</label>
                         <input type="text" id="tag" name="tag" class="form-control col-2">
-                        <div id="tagField" class="col-12">
+                        <div id="tagField" class="col-12 mt-3">
 
                         </div>
                     </div>
@@ -83,16 +83,20 @@
                 var i =0;
                 if(e.keyCode==9)
                 {
-                    i++
-                    $("#tagField").append(`
-                        <span id="tag-${i}" class="badge badge-primary mr-2">
-                            <span class="mr-1">${$("#tag").val()}</span>
-                            <span id="${i}" class="btn btn-sm btn-dark text-white c-b">x</span>
-                            <input type="hidden" name="tags[]" value="${$("#tag").val()}" />
-                        </span>
+                    if($("#tag").val().length<=0){
+                        alert("Write Something")
+                    }else{
+                        i++
+                        $("#tagField").append(`
+                            <span id="tag-${i}" class="badge badge-primary mr-2">
+                                <span class="mr-1">${$("#tag").val()}</span>
+                                <span id="${i}" class="btn btn-sm btn-dark text-white c-b">x</span>
+                                <input type="hidden" name="tags[]" value="${$("#tag").val()}" />
+                            </span>
                         `)
-                    $("#tag").val("")
-                    e.preventDefault();
+                        $("#tag").val("")
+                        e.preventDefault();
+                    }
                 }
             })
 
