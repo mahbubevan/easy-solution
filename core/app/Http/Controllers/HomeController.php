@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -19,7 +20,10 @@ class HomeController extends Controller
 
     public function create()
     {
-        return view('blogs.create');
+        $categories = Category::get(['id','name']);
+        return view('blogs.create')->with([
+            'categories' => $categories,
+        ]);
     }
 
 }

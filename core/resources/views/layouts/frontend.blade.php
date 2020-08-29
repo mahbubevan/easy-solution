@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 
     @stack('css')
+
+    <script type="text/javascript" src="{{asset('assets/nicEdit/nicEdit.js')}}"></script>
+
 </head>
 <body>
 

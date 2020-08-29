@@ -6,4 +6,5 @@
         'categories' => 'Categories',
         'description' => 'Description',
         'multiple_image' => 'Multiple Screenshots',
+        'tag_hint' => 'Press Tab',
     ];

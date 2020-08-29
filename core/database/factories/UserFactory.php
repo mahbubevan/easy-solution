@@ -2,6 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+use App\Admin;
 use App\Blog;
 use App\Category;
 use App\Image;
@@ -29,6 +30,16 @@ $factory->define(User::class, function (Faker $faker) {
         'email_verified_at' => now(),
         'password' => bcrypt('user'), // password
         'remember_token' => Str::random(10),
+    ];
+});
+
+$factory->define(Admin::class, function (Faker $faker) {
+    return [
+        'name' => $name = $faker->name,
+        'username' => $faker->unique()->userName,
+        'email' => $faker->unique()->safeEmail,
+        'email_verified_at' => now(),
+        'password' => bcrypt('admin'), // password
     ];
 });
 

@@ -21,10 +21,28 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-12">{{__('blog.tags')}}</label>
+                        <label for="tag" class="col-12">{{__('blog.tags')}}</label>
+                        <small style="font-size:.85rem" class="col-12"> <i class="fas fa-exclamation-circle"></i> {{__('blog.tag_hint')}}</small>
                         <input type="text" id="tag" name="tag" class="form-control col-2">
                         <div id="tagField" class="col-12 mt-3">
 
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-12">{{__('blog.categories')}}</label>
+                        <select name="categories" multiple id="" class="selectpicker form-control col-4">
+                            @foreach ($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-12" for="description">{{__('blog.description')}}</label>
+                        <textarea class="nicEdit form-control" name="description" id="description" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
+                            <button type="submit" class="btn btn-lg btn-primary">Publish <span class="ml-1"><i class="fas fa-plus-square"></i></span></button>
                         </div>
                     </div>
                 </form>
@@ -34,6 +52,7 @@
 @endsection
 
 @push('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
     <style>
         .create-field{
             font-size: 1.5rem;
@@ -106,5 +125,18 @@
             })
 
         })
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <script>
+        $('select').selectpicker();
+    </script>
+    <script src="{{asset('assets/nicEdit/nicEdit.js')}}"></script>
+    <script type="text/javascript">
+        bkLib.onDomLoaded(function() {
+            $( ".nicEdit" ).each(function( index ) {
+                $(this).attr("id","nicEditor"+index);
+                new nicEditor({fullPanel : true}).panelInstance('nicEditor'+index,{hasPanel : true});
+            });
+        });
     </script>
 @endpush

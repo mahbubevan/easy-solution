@@ -7,4 +7,5 @@
         'categories' => 'বিভাগসমূহ',
         'description' => 'বিবরণ',
         'multiple_image' => 'একাধিক ছবি',
+        'tag_hint' => 'ট্যাব চাপুন',
     ];
